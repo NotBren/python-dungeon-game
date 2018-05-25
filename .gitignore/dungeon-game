@@ -1,0 +1,58 @@
+import math, random, sys
+# this should be the only thing I need to call
+def intro():
+    print('This will be a dungeon style game where you fight bosses. Only the lucky survive.')
+    print('Do you wish to continue? y/n')
+    answer1 = input()
+	    if (answer == 'y'):
+            print('Very well. Enter at your own risk...')
+			print('On to the first dungeon!')
+            dungeon1() # calls the next function
+        else:
+	        print('*You walk away, confused as to what just happened...*')
+			sys.exit() # ends the game as they do not want to play
+# for the first boss (number guessing game)
+def dungeon1():
+    print('*A booming voice calls to you* "What are you doing in here?!"')
+	print('"Down here, you win by the numbers. If you can guess my number, I will let you live..."')
+	print('Guess between 1 and 5.')
+	boss = random.randint(1, 6) # what the boss guesses
+	guess = int(input()) # what the user guesses
+	    if (guess == boss):
+		    print('Lady Luck seems to be on your side today. Count your blessings, traveler.')
+			dungeon2() # calls the next function
+        else:
+		    print('You lose, kiddo. My number was ' + str(boss) + '.')
+			intro() # restarts the game
+def dungeon2(): # for the second boss
+    print('A sign appears in front of you... it reads, "Those who know, are ones who fail."')
+	print('Say either 1, 2, or 3.')
+	boss = random.randint(1,4) # numbers between 1 and 3
+	guess = int(input()) # what the user guesses
+	    if (guess != boss):
+		    print('You were wrong... So you were right! On to the next challenge.')
+			dungeon3() # calls the final dungeon
+		else:
+		    print('You were correct!... which is technically incorrect.')
+			intro() # restarts the game
+def dungeon3pt1():
+    print('You\'ve reached the end! You just have to finish off the last puzzle to exit the perilous cave.')
+	print('You need to find BOTH pieces of the key to the exit.')
+	key1 = random.randint(2, 9, 2)
+	print('Hint: The first group is between 2-8 with even numbers, and the second is 11-19, odds only... good luck.')
+	guess1 = int(input())
+	    if (guess1 == key1):
+		    print('You have the first part down. Let\'s see if you have the second part correct.')
+		else:
+		    print('You lose.')
+		    intro()
+def dungeon3pt2():
+    print('Now, let\'s see if you have completed the second part correctly.')
+	key2 = random.randint(11, 20, 2)
+	guess2 = int(input())
+	   if (guess2 == key2):
+	       print('You have traveled through all of the dungeon! Take this ring as a reward!')
+		   print('*You have been given a ring made of Tellurium, an extremely rare metal.*')
+	   else:
+	       print('You have come this far, only to lose like the rest.')
+		   intro()
